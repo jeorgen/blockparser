@@ -158,7 +158,9 @@ struct RawDump:public Callback {
         LOAD(uint256_t, upTXHash, p);
         LOAD(uint32_t, upOutputIndex, p);
         LOAD_VARINT(inputScriptSize, p);
-
+        p += inputScriptSize;
+        LOAD(uint32_t, sequence, p);
+        printf("*******SEQUENCE******* %" PRIu32 "\n",sequence);
         printf("%sscript = '\n", spaces);
             pop();
                 showScript(p, inputScriptSize, 0, (const char *)spaces);
