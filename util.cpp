@@ -446,7 +446,11 @@ bool addrToHash160(
         #if defined(BITCOIN)
             data[0] = 0;
         #endif
-        
+
+        #if defined(REGTEST)
+            data[0] = 111;
+        #endif        
+
         #if defined(FEDORACOIN)
             data[0] = 33;
         #endif
@@ -780,6 +784,10 @@ const char *getInterestingAddr() {
     #if defined(BITCOIN)
 
         "1dice8EMZmqKvrGE4Qc9bUFf9PX3xaYDp"
+
+    #elif defined(REGTEST)
+
+        "mqM6HETk9vowz34QMJ83NCmnrKCSJVPhsr"
 
     #elif defined(LITECOIN)
 
