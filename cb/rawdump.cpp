@@ -160,7 +160,7 @@ struct RawDump:public Callback {
         LOAD_VARINT(inputScriptSize, p);
         p += inputScriptSize;
         LOAD(uint32_t, sequence, p);
-        printf("*******SEQUENCE******* %" PRIu32 "\n",sequence);
+        printf("%s nsequence = %" PRIu32 "\n",spaces, sequence);
         printf("%sscript = '\n", spaces);
             pop();
                 showScript(p, inputScriptSize, 0, (const char *)spaces);
